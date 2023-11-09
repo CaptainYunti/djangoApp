@@ -1,0 +1,25 @@
+
+<body>
+
+    <h2>Wprowadź numer pesel</h2>
+
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Sprawdź">
+    <br>
+        {% if birth_date is not None %}
+            <p>Twoja data urodzenia to: {{ birth_date }}</p>
+        {% endif %}
+        {% if male %}
+            <p>Twoja płeć to: mężczyzna</p>
+        {% elif male == False %}
+            <p>Twoja płeć to: kobieta</p>
+        {% endif %}
+        {% if correct_pesel is not None %}
+            <p>Czy numer PESEL jest poprawny: {{ correct_pesel }}</p>
+        {% endif %}
+    </form>
+</body>
+
+
